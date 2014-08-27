@@ -24,7 +24,7 @@ server {
     client_max_body_size <%= @application[:nginx][:client_max_body_size] %>;
   <% end %>
 
-  if (-f $document_root/system/maintenance.html) {
+  if (-f <%= @application[:absolute_document_root] %>system/maintenance.html) {
     return 503;
   }
 
@@ -92,7 +92,7 @@ server {
     client_max_body_size <%= @application[:nginx][:client_max_body_size] %>;
   <% end %>
 
-  if (-f $document_root/system/maintenance.html) {
+  if (-f <%= @application[:absolute_document_root] %>system/maintenance.html) {
     return 503;
   }
 

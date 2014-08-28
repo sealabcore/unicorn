@@ -2,7 +2,7 @@ upstream unicorn_<%= @application[:domains].first %> {
  server unix:<%= @application[:deploy_to]%>/shared/sockets/unicorn.sock fail_timeout=0;
 }
 
-<% [80, 45666].each do |port| %>
+<% [80, 49666].each do |port| %>
   server {
     listen <%= port %>;
     server_name <%= @application[:domains].join(" ") %> <%= node[:hostname] %>;
